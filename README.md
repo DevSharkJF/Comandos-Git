@@ -70,8 +70,213 @@ Arquivos, diretórios ou extensões listados no `.gitignore` não serão adicion
 
 <br>
 
-# Repositório Local
+# Ações de Arquivos e Diretórios
+## Adicionar
+### *Adicionar Arquivo Específico*
+Adiciona somente um arquivo de todo o repositório:
+
+    git add nome_arquivo.extensao
+
+### *Adicionar Diretório*
+Adiciona um diretório completo:
+
+    git add nome_diretório
+
+### *Adicionar Tudo*
+Adiciona todos os arquivos (novos, modificados e removidos) e pastas do diretório em que o comando é digitado:
+
+    git add .
+
+Adiciona todos os arquivos (novos, modificados e removidos) de todo o repositório:
+
+    git add --all
+
+Adiciona arquivos modificados ou removidos:
+
+    git add -u
+    git add -update
+
+### *Adicionar arquivo listado no .gitignore*
+Pode adicionar o arquivo geral ou do repositório:
+
+    git add -f arquivo_gitignore.extensão
+<hr>
+
+## Remover
+### *Remover Arquivo / Diretório*
+
+    git rm nome_arquivo.extensão
+    git rm -r diretorio
+<hr>
+
+## Histórico
+Mostra algumas opções disponíveis para ajudar:
+
+    git log --help
+
+### *Exibir*
+Exibe o histórico:
+
+    git log
+
+Exibe histórico de um arquivo específico:
+
+    git log -- <caminho_arquivo>
+
+Exibe histórico de um arquivo específico que contêm determinada palavra:
+
+    git log --sumary -S<palavra> [<caminho_arquivo>]
+
+Exibe histórico de um autor:
+
+    git log --author=usuario
+
+### *Histórico em Linha*
+Exibe o histórico em linha:
+
+    git log --oneline
+
+Exibe informações resumidas (hash e comentário):
+
+    git log --pretty=oneline
+
+### *Histórico Detalhado*
+Exibe os detalhes, mostrando o que aconteceu no projeto:
+
+    git log -p
+
+Exibe histórico das duas últimas alterações
+
+    git log -p -2
+
+Resumo histórico (hash completa, autor, data, comentário e quantidade de alterações):
+
+    git log --stat
+
+Exibe histórico com formatação específica:
+
+    git log --pretty=format:"%h - %an, %ar : %s"
+
+* %h: Abreviação do hash;
+* %an: Nome do autor;
+* %ar: Data;
+* %s: Comentário.
+
+Exibe todo os logs bem detalhados:
+
+    git log --graph --oneline --all
+
+### *Gráfico*
+Visualizador de histórico gráfico
+
+    gitk
+<hr>
+
+## Desfazer
+
+<br>
+
+# Comitar
+Comitar é ação de salvar os arquivos e os diretórios e prepará-los para enviar ao repositório
+### *Tipos*
+Realiza o commit de um arquivo:
+
+    git commit nome_arquivo.extensão
+
+Realiza o commit de vários arquivos:
+
+    git commit nome_arquivo.extensão nome_arquivo.extensão nome_arquivo.extensão
+
+Realiza um commit com título:
+
+    git commit -m "Título"
+
+Realiza um commit com título e Descrição
+
+    git commit -m "Título" -m "Descrição"
+
+Adiciona todos os arquivos e realiza o commit:
+
+    git commit -a -m "Mensagem"
+
+Realiza o commit de um arquivo informando uma mensagem:
+
+    git commit nome_arquivo.extensão -m "Mensagem"
+
+<br>
+
+# Repositório 
+Podem ser criadas localmente ou de forma remota
+## Local
 ### *Novo Repositório*
 Cria um novo repositório de forma local:
 
     git init
+
+Cria um repositório que não terá working tree, ou seja, não terá cópia dos arquivos, servindo como servidor:
+
+    git init --bare
+
+### *Status*
+Analisa o estado do repositório:
+
+    git status
+
+<br>
+
+## Remoto
+### *Exibir Repositório*
+Lista os repositórios remotos:
+
+    git remote
+
+Lista os nomes e endereços:
+
+    git remote -v
+
+Exibi informações dos repositórios remotos:
+
+    git remote show origin
+
+### *Adicionar*
+Adiciona um repositório remoto:
+
+    git remote add origin url_repositorio
+    git remote set-url origin url_repositorio
+
+### *Renomear*
+Renomeia um repositório remoto:
+
+    git remote rename origin novo-nome
+    git remote rename nome-atual novo-nome
+
+### *Desvincular*
+Desvincula um repositório remoto:
+
+    git remote remove nome-repositório
+    git remote rm nome-repositório
+
+### *Clone*
+Clona um repositório remoto já existente:
+
+    git clone url_repositório
+
+Baixa o repositório remoto em uma branch específica?
+
+    git clone --branch nome-branch url_repositório
+    git clone -b nome-branch url_repositório
+
+### *Enviar Arquivos*
+Envia arquivos e diretórios para o repositório remoto. Ao usar a primeira opção, ficará salvo e os demais envios não irão precisar colocar a branch:
+
+    git push -u origin master
+    git push nome-remote nome-branch
+
+Envia os arquivos e diretórios após o primeiro push:
+
+    git push
+
+Envia os dados de todas as branches para o repositório remoto:
+
+    git push --all
+
