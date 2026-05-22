@@ -173,6 +173,37 @@ Visualizador de histórico gráfico
 <hr>
 
 ## Desfazer
+### *Desfazer Alteração Local (Working Directory)*
+Descarta alterações do arquivo, quando não foi adicionado na **staged area**.
+
+    git checkout -- nome_arquivo.extensão
+    git restore nome_arquivo.extensão
+
+### *Desfazer Tudo*
+Descarta alterações de todos os arquivos.
+
+    git checkout .
+    git restore .
+
+### *Desfazer Alteração Local (Stating Area)*
+Desmarca o arquivo para ser commitado, não foi adicionado na **staged area**.
+
+    git reset HEAD nome_arquivo.extensão
+
+### *Desfazer Commit*
+Desfaz o último commit, mantendo todas as alterações dods arquivos intactas para um novo commit, na **staged area**.
+
+    git reset --soft HEAD^	
+
+### *Apagar Commit*
+Apaga permanentemente o último commit e descarta todas as alterações não salvas feitas nos arquivos desde então. Retorna o repositório para o estado que estava no penúltimo commit.
+
+    git reset --hard HEAD^	
+
+### *Desfazer Alteração Commit*
+Remove as alterações no código do commit, criando um novo commit. Não apaga o commit original do histórico.
+
+    git revert nome-hash
 
 <br>
 
@@ -221,10 +252,12 @@ Cria um repositório que não terá working tree, ou seja, não terá cópia dos
 Analisa o estado do repositório:
 
     git status
-
-<br>
+<hr>
 
 ## Remoto
+Use este truque: adicione 1s na URL de qualquer repositório do GitHub:
+github.com/nome/repo
+github1s.com/nome/repo
 ### *Exibir Repositório*
 Lista os repositórios remotos:
 
