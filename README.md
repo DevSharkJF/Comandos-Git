@@ -255,9 +255,12 @@ Analisa o estado do repositório:
 <hr>
 
 ## Remoto
-Use este truque: adicione 1s na URL de qualquer repositório do GitHub:
-github.com/nome/repo
-github1s.com/nome/repo
+É possível abrir um código em um editor online do `GitHub`, sem precisar clonar ou baixar o repositório
+1) Copie a `URL` do repositório
+2) Adicione `1s` depois de **github**
+* https://github.com/nome_usuario/nome_repositório
+* https://github1s.com/nome_usuario/nome_repositório
+
 ### *Exibir Repositório*
 Lista os repositórios remotos:
 
