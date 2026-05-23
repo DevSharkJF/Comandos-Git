@@ -145,7 +145,7 @@ Exibe os detalhes, mostrando o que aconteceu no projeto:
 
     git log -p
 
-Exibe histórico das duas últimas alterações
+Exibe histórico das duas últimas alterações:
 
     git log -p -2
 
@@ -167,41 +167,41 @@ Exibe todo os logs bem detalhados:
     git log --graph --oneline --all
 
 ### *Gráfico*
-Visualizador de histórico gráfico
+Visualizador de histórico gráfico:
 
     gitk
 <hr>
 
 ## Desfazer
 ### *Desfazer Alteração Local (Working Directory)*
-Descarta alterações do arquivo, quando não foi adicionado na **staged area**.
+Descarta alterações do arquivo, quando não foi adicionado na **staged area**:
 
     git checkout -- nome_arquivo.extensão
     git restore nome_arquivo.extensão
 
 ### *Desfazer Tudo*
-Descarta alterações de todos os arquivos.
+Descarta alterações de todos os arquivos:
 
     git checkout .
     git restore .
 
 ### *Desfazer Alteração Local (Stating Area)*
-Desmarca o arquivo para ser commitado, não foi adicionado na **staged area**.
+Desmarca o arquivo para ser commitado, não foi adicionado na **staged area**:
 
     git reset HEAD nome_arquivo.extensão
 
 ### *Desfazer Commit*
-Desfaz o último commit, mantendo todas as alterações dods arquivos intactas para um novo commit, na **staged area**.
+Desfaz o último commit, mantendo todas as alterações dods arquivos intactas para um novo commit, na **staged area**:
 
     git reset --soft HEAD^	
 
 ### *Apagar Commit*
-Apaga permanentemente o último commit e descarta todas as alterações não salvas feitas nos arquivos desde então. Retorna o repositório para o estado que estava no penúltimo commit.
+Apaga permanentemente o último commit e descarta todas as alterações não salvas feitas nos arquivos desde então. Retorna o repositório para o estado que estava no penúltimo commit:
 
     git reset --hard HEAD^	
 
 ### *Desfazer Alteração Commit*
-Remove as alterações no código do commit, criando um novo commit. Não apaga o commit original do histórico.
+Remove as alterações no código do commit, criando um novo commit. Não apaga o commit original do histórico:
 
     git revert nome-hash
 
@@ -222,7 +222,7 @@ Realiza um commit com título:
 
     git commit -m "Título"
 
-Realiza um commit com título e Descrição
+Realiza um commit com título e Descrição:
 
     git commit -m "Título" -m "Descrição"
 
@@ -255,7 +255,7 @@ Analisa o estado do repositório:
 <hr>
 
 ## Remoto
-É possível abrir um código em um editor online do `GitHub`, sem precisar clonar ou baixar o repositório
+É possível abrir um código em um editor online do `GitHub`, sem precisar clonar ou baixar o repositório:
 1) Copie a `URL` do repositório
 2) Adicione `1s` depois de **github**
 * https://github.com/nome_usuario/nome_repositório
@@ -297,7 +297,7 @@ Clona um repositório remoto já existente:
 
     git clone url_repositório
 
-Baixa o repositório remoto em uma branch específica?
+Baixa o repositório remoto em uma branch específica:
 
     git clone --branch nome-branch url_repositório
     git clone -b nome-branch url_repositório
