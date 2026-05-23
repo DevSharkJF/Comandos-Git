@@ -315,4 +315,18 @@ Envia os arquivos e diretórios após o primeiro push:
 Envia os dados de todas as branches para o repositório remoto:
 
     git push --all
+<hr>
 
+## Atualizar Repositório
+Atualiza o repositório local de acordo com as atualizações do repositório remoto
+### *Atualiza os arquivos na branch atual*
+Pega as atualizações do repositório remoto e aplica no local
+
+    git pull
+
+### *Vizualizar Alterações*
+Busca informações sobre um repositório remoto, mas não altera nenhuma branch
+
+    git fetch
+
+<br>
