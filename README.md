@@ -330,3 +330,15 @@ Busca informações sobre um repositório remoto, mas não altera nenhuma branch
     git fetch
 
 <br>
+
+# Branches / Ramificação
+Ao criar um repositório com conteúdo, o GitHub cria o repositório com um só branch (Ramificação), sendo o branch-padrão, que tem o nome de `Main` ou `Master`. Esse branch principal será o que o Github exibe quando alguém visita o repositório e quando alguém deseja clonar o repositório, a menos que o usuário especifique um branch diferente.
+
+A criação de um novo `branch / ramificação`, diverge a linha principal de desenvolvimento. Essas novas ramificações, permitem adicionar novas funcionalidades, corrigir bugs ou experimentar novas ideias com segurança, sem alterar e interferir no desenvolvimento da linha principal.
+
+A criação de diversas `branches` é utilizada principalmente em projetos que possuem vários colaboradores, pois:
+* Isolamento: Alterações feitas em uma branch não afetam o código principal até que você decida juntá-las.
+* Organização: Permite o desenvolvimento de múltiplos recursos (features) em paralelo.
+* Trabalho em equipe: Diferentes pessoas podem trabalhar em branches separadas ao mesmo tempo, sem que o trabalho de uma interfira no da outra
+
+Ao final do projeto, quando todas as branches estão funcionando, elas são mescladas para a linha principal;
