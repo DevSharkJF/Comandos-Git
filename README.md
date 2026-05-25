@@ -373,13 +373,17 @@ Troca para um branch existente:
     git switch nome-branch
 
 ### *Branch no Repositório Remoto*
-Cria uma branch no repositório remoto com mesmo nome:
+Cria um branch no repositório remoto com mesmo nome:
 
     git push origin nome-branch
 
-Cria uma branch no repositório remoto com nome diferente:
+Cria um branch no repositório remoto com nome diferente:
 
     git push origin nome-branch:new-branch
+
+Cria um branch já existente localmente no repositório remoto:
+
+    git push --set-upstream origin <nome-branch>
 
 Baixa um branch remoto para edição:
 
@@ -434,4 +438,89 @@ Renomeia a branch, se estiver dentro dela:
 Renomeia a branch, dentro de outra branch:
 
     git branch -m nome-atual novo-nome
+
+<br>
+
+# Merge
+Merge refere-se a *mesclar* ou *unir* as alterações das branches selecionadas e as implementa no branch main/master.
+
+As vezes, o Git não consegue unir os arquivos de forma automática se duas pessoas alteraram a mesma linha de um código de maneiras diferentes. Quando isso acontece, ele gera um conflito e você precisará abrir o arquivo manualmente, escolher qual parte do código manter e depois concluir a junção.
+
+Para realizar o `merge`, é necessário estar no branch que deverá receber as alterações. O `merge` pode ser automático ou manual. O merge automático será feito em arquivos textos que não sofreram alterações nas mesmas linhas, já o merge manual será feito em arquivos textos que sofreram alterações nas mesmas linhas.
+
+A mensagem indicando um `merge` manual será:
+
+	Automerging meu_arquivo.txt
+	CONFLICT (content): Merge conflict in meu_arquivo.txt
+	Automatic merge failed; fix conflicts and then commit the result
+
+### *Fazer Merge*
+Faz Merge do branch atual com uma selecionada:
+    git merge nome-branch
+
+Faz Merge para o branch main/master:
+
+    git merge main/master
+
+Faz Merge trocando para o branch que deseja:
+
+    git checkout nome-branch
+    git merge nome-branch
+
+### *Cancelar Merge*
+Cancela o merge e volta ao estado anterior:
+    git merge --abort
+
+### *Squash Merge*
+Combina todas as alterações de um branch em um único commit, em vez de cada commit ser individual:
+
+    git merge --squash nome-branch
 <hr>
+
+## Merge Non Fast Forward
+
+### *NON-FAST-FORWARD*
+O comando `git merge --no-ff` serve para forçar a criação de um commit de merge, mesmo quando o Git conseguiria juntar as alterações automaticamente usando `fast-forward`.
+
+    git merge --no-ff nome-branch
+`Fast-Forward:` Quando no histórico, não existe um commit de merge, deixando o histórico linear.
+
+### **Sem Usar --no-f**
+Você criou um branch feature, fez commits nela ``(C e D)``, e a main não mudou desde então:
+
+    main
+    A---B
+
+    feature
+    \---C---D
+
+Depois de efetuar o merge, o Git simplesmente move a main para frente:
+
+    git merge feature
+    main A---B---C---D
+
+### **Usando --no-f**
+A vantagem é mostrar claramente que houve um merge, de onde ele veio, quais commits pertencem a ele e quando foi integrada, deixando o histórico mais organizado com as informações:
+
+    git merge --no-ff feature
+O Git cria um commit especial de merge:
+
+    A---B-------M
+
+        \     /
+        C---D
+
+``M = commit de merge``
+
+**Quando usar?**
+* Use --no-ff quando:
+* trabalha em equipe
+* usa Git Flow
+* quer histórico organizado
+* quer separar funcionalidades
+* quer facilitar rollback
+
+**Talvez não precise quando:**
+* projeto pequeno
+* commits simples
+* você prefere histórico totalmente linear
