@@ -342,3 +342,96 @@ A criação de diversas `branches` é utilizada principalmente em projetos que p
 * Trabalho em equipe: Diferentes pessoas podem trabalhar em branches separadas ao mesmo tempo, sem que o trabalho de uma interfira no da outra
 
 Ao final do projeto, quando todas as branches estão funcionando, elas são mescladas para a linha principal;
+<hr>
+
+## Ações
+### *Branch Principal*
+Volta para o branch principal / master:
+
+    git checkout master
+
+Volta para a branch anterior sem escrever o nome:
+
+    git checkout -
+<hr>
+
+## Criar Branch
+### *Criar uma Branch*
+
+    git branch nome-branch
+
+### *Criar e Trocar*
+Cria um novo branch e troca:
+
+    git checkout -b nome-branch
+    git switch -c nome-branch
+
+### *Trocar Existente*
+Troca para um branch existente:
+
+    git checkout nome-branch
+    git switch nome-branch
+
+### *Branch no Repositório Remoto*
+Cria uma branch no repositório remoto com mesmo nome:
+
+    git push origin nome-branch
+
+Cria uma branch no repositório remoto com nome diferente:
+
+    git push origin nome-branch:new-branch
+
+Baixa um branch remoto para edição:
+
+    git checkout -b nome-branch origin/nome-branch
+<hr>
+
+## Listar Branches
+### *Tipos de Listagem*
+Lista as branches locais:
+
+    git branch
+
+Lista as branches locais e remotas:
+
+    git branch -a
+
+Lista branches com informações dos últimos commits:
+
+    git branch -v
+
+### *Listagem de Merged*
+Lista branches que já foram fundidos (merged) com o `master`:
+
+    git branch --merged
+
+Lista branches que não foram fundidos (merged) com o `master`:
+
+    git branch --no-merged
+<hr>
+
+## Apagar Branch
+### *Tipos de Delete*
+Deleta a branch somente sem conflitos:
+
+    git branch -d nome-branch
+
+Deleta a branch com ou sem conflitos:
+
+    git branch -D nome-branch
+
+Apaga um branch remoto:
+
+    git push origin:nome-branch
+<hr>
+
+## Renomear Branch
+### *Tipos de Rename*
+Renomeia a branch, se estiver dentro dela:
+
+    git branch -m novo-nome
+
+Renomeia a branch, dentro de outra branch:
+
+    git branch -m nome-atual novo-nome
+<hr>
