@@ -1,3 +1,10 @@
+# Git
+Link para fazer o download do git e sua documentação:
+
+    https://git-scm.com
+
+<br>
+
 # Estados
 * Modificado (Modified)
 * Preparado (staged)
@@ -207,7 +214,7 @@ Remove as alterações no código do commit, criando um novo commit. Não apaga 
 
 <br>
 
-# Comitar
+# Commit
 Comitar é ação de salvar os arquivos e os diretórios e prepará-los para enviar ao repositório
 ### *Tipos*
 Realiza o commit de um arquivo:
@@ -242,6 +249,7 @@ Altera as mensagens de um commit:
 
 # Repositório 
 Podem ser criados localmente ou de forma remota.
+
 ## Local
 ### *Novo Repositório*
 Cria um novo repositório de forma local:
@@ -577,3 +585,5 @@ Ao usar o rebase o Git irá exibir no editor de código alguns comandos:
 * p, pick <commit> = usar o commit
 * r, reword <commit> = usar o commit, mas editar a mensagem
 * s, squash <commit> = usar o commit, mas mesclar no commit anterior
+
+<br>
