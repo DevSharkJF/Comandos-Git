@@ -478,7 +478,6 @@ Combina todas as alterações de um branch em um único commit, em vez de cada c
 <hr>
 
 ## Merge Non Fast Forward
-
 ### *NON-FAST-FORWARD*
 O comando `git merge --no-ff` serve para forçar a criação de um commit de merge, mesmo quando o Git conseguiria juntar as alterações automaticamente usando `fast-forward`.
 
@@ -524,3 +523,56 @@ O Git cria um commit especial de merge:
 * projeto pequeno
 * commits simples
 * você prefere histórico totalmente linear
+
+<br>
+
+# Rebasing
+O ``rebasing`` serve para reorganizar ou reescrever o histórico de commits de um projeto. Ele é usado principalmente para atualizar a sua branch atual com as últimas alterações de outra branch (como a main ou develop), colocando os seus commits no topo e deixando o histórico linear, sem gerar commits de merge. Isso pode ser útil se a branch que você tá precisar ser revisada por outra pessoa, ou se você só quiser manter o histórico limpo pra ter uma visão melhor do que aconteceu.
+
+Imagine que você criou uma branch feature para trabalhar em uma funcionalidade e fez alguns commits nela. Enquanto isso, alguém alterou a branch main.
+
+Se você usar o git merge, o Git criará um commit extra apenas para juntar as duas linhas. Com o git rebase, acontece o seguinte:
+* O Git "desconecta" temporariamente os seus commits da feature.
+* Ele atualiza a sua branch com os commits mais recentes da main.
+* Ele reaplica os seus commits da feature um por um, bem no final dessa nova linha da main.
+
+O resultado é um histórico limpo e contínuo, como se você tivesse começado a trabalhar na feature já a partir da versão mais recente da main.
+<hr>
+
+## Rebase
+Faz o `rebase` entre uma branch e a branch main.
+
+    git checkout nome-branch
+    git rebase master
+<hr>
+
+## Organização
+O comando ``git rebase -i`` (onde o -i significa interativo) serve para editar, limpar e organizar o histórico de commits locais antes de você enviá-los para o servidor compartilhado.Diferente do rebase comum, que apenas move os commits em bloco, o modo interativo abre um painel no seu editor de texto que permite alterar o passado linha por linha.
+
+    git rebase -i
+
+Para usá-lo, você precisa dizer ao Git a partir de qual ponto quer editar. O cenário mais comum é olhar para os seus últimos commits.Se você quer organizar os seus últimos 3 commits, digite:
+### *Como Usar?*
+Ao usar o ``git rebase -i``, geralmente precisamos informar ao git a partir de qual ponto queremos usar. O mais comum é olhar os últimos commits, deixando o comando da seguinte forma:
+
+    git rebase -i HEAD~n°_de_commits
+
+Para olhar os últimos 5 commits: ``git rebase -i HEAD~5``
+<hr>
+
+## Organização Desde o Inicial
+
+O comando ``git rebase -i --root`` serve para abrir o rebase interativo desde o primeiríssimo commit da história do seu repositório.Por padrão, quando você faz um git rebase -i, você precisa passar um ponto de partida (como HEAD~3 para ver os últimos 3 commits). No entanto, o Git normalmente não permite que você altere o primeiro commit da história (o commit inicial) usando essa sintaxe. O modificador --root resolve isso, permitindo que você reescreva absolutamente todo o histórico da branch atual, do início ao fim:
+
+    git rebase -i --root
+
+* Limpar o início do projeto: Se os seus primeiros commits foram bagunçados (ex: "initial commit", "ajuste", "teste"), você pode usar o squash para juntar tudo em um único commit inicial limpo.
+* Corrigir mensagens antigas: Mudar o texto do primeiríssimo commit do projeto que foi escrito com erros de digitação.
+* Remover arquivos pesados do passado: Se você colocou uma senha, chave de API ou um arquivo de 1GB no primeiro commit e depois deletou, ele continua ocupando espaço no histórico. Com o --root, você pode editar o primeiro commit e removê-lo definitivamente
+<hr>
+
+## Comandos
+Ao usar o rebase o Git irá exibir no editor de código alguns comandos:
+* p, pick <commit> = usar o commit
+* r, reword <commit> = usar o commit, mas editar a mensagem
+* s, squash <commit> = usar o commit, mas mesclar no commit anterior
