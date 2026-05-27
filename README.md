@@ -6,7 +6,7 @@
 <br>
 
 # Configurações
-As configurações do GIT são armazenadas no arquivo `.gitconfig` localizado dentro do diretório do usuário do Sistema Operacinal
+As configurações do GIT são armazenadas no arquivo ``.gitconfig`` localizado dentro do diretório do usuário do Sistema Operacinal.
 
 ### *Listar Configurações*
     git config --list
@@ -62,7 +62,7 @@ Ignora um ou mais arquivos globais:
 <br>
 
 # Ignorar Arquivos
-Arquivos, diretórios ou extensões listados no `.gitignore` não serão adicionados no repositório do Github, ficando apenas na máquina do usuário. Esse método é importante para senhas, chaves, nomes de BD entre outros. Existem dois tipos de arquivos .gitignore, são eles:
+Arquivos, diretórios ou extensões listados no ``.gitignore`` não serão adicionados no repositório do Github, ficando apenas na máquina do usuário. Esse método é importante para senhas, chaves, nomes de BD entre outros. Existem dois tipos de arquivos .gitignore, são eles:
 
 * Geral: Normalmente armazenado no diretório do usuário do Sistema Operacional. O arquivo que possui a lista dos arquivos/diretórios a serem ignorados por **todos os repositórios** deverá ser declarado conforme citado acima. O arquivo não precisa ter o nome de **.gitignore**.
 
@@ -234,10 +234,14 @@ Realiza o commit de um arquivo informando uma mensagem:
 
     git commit nome_arquivo.extensão -m "Mensagem"
 
+Altera as mensagens de um commit:
+
+    git commit --amend -m "Nova Mensagem"
+
 <br>
 
 # Repositório 
-Podem ser criadas localmente ou de forma remota
+Podem ser criados localmente ou de forma remota.
 ## Local
 ### *Novo Repositório*
 Cria um novo repositório de forma local:
@@ -255,9 +259,9 @@ Analisa o estado do repositório:
 <hr>
 
 ## Remoto
-É possível abrir um código em um editor online do `GitHub`, sem precisar clonar ou baixar o repositório:
-1) Copie a `URL` do repositório
-2) Adicione `1s` depois de **github**
+É possível abrir um código em um editor online do ``GitHub``, sem precisar clonar ou baixar o repositório:
+1) Copie a ``URL`` do repositório
+2) Adicione ``1s`` depois de **github**
 * https://github.com/nome_usuario/nome_repositório
 * https://github1s.com/nome_usuario/nome_repositório
 
@@ -318,30 +322,30 @@ Envia os dados de todas as branches para o repositório remoto:
 <hr>
 
 ## Atualizar Repositório
-Atualiza o repositório local de acordo com as atualizações do repositório remoto
+Atualiza o repositório local de acordo com as atualizações do repositório remoto.
 ### *Atualiza os arquivos na branch atual*
-Pega as atualizações do repositório remoto e aplica no local
+Pega as atualizações do repositório remoto e aplica no local:
 
     git pull
 
 ### *Vizualizar Alterações*
-Busca informações sobre um repositório remoto, mas não altera nenhuma branch
+Busca informações sobre um repositório remoto, mas não altera nenhuma branch:
 
     git fetch
 
 <br>
 
 # Branches / Ramificação
-Ao criar um repositório com conteúdo, o GitHub cria o repositório com um só branch (Ramificação), sendo o branch-padrão, que tem o nome de `Main` ou `Master`. Esse branch principal será o que o Github exibe quando alguém visita o repositório e quando alguém deseja clonar o repositório, a menos que o usuário especifique um branch diferente.
+Ao criar um repositório com conteúdo, o GitHub cria o repositório com um só ``branch (Ramificação)``, sendo o branch-padrão, que tem o nome de `Main` ou `Master`. Esse branch principal será o que o Github exibe quando alguém visita o repositório e quando alguém deseja clonar o repositório, a menos que o usuário especifique um branch diferente.
 
 A criação de um novo `branch / ramificação`, diverge a linha principal de desenvolvimento. Essas novas ramificações, permitem adicionar novas funcionalidades, corrigir bugs ou experimentar novas ideias com segurança, sem alterar e interferir no desenvolvimento da linha principal.
 
 A criação de diversas `branches` é utilizada principalmente em projetos que possuem vários colaboradores, pois:
 * Isolamento: Alterações feitas em uma branch não afetam o código principal até que você decida juntá-las.
 * Organização: Permite o desenvolvimento de múltiplos recursos (features) em paralelo.
-* Trabalho em equipe: Diferentes pessoas podem trabalhar em branches separadas ao mesmo tempo, sem que o trabalho de uma interfira no da outra
+* Trabalho em equipe: Diferentes pessoas podem trabalhar em branches separadas ao mesmo tempo, sem que o trabalho de uma interfira no da outra.
 
-Ao final do projeto, quando todas as branches estão funcionando, elas são mescladas para a linha principal;
+Ao final do projeto, quando todas as branches estão funcionando, elas são mescladas para a linha principal.
 <hr>
 
 ## Ações
@@ -550,8 +554,6 @@ Faz o `rebase` entre uma branch e a branch main.
 O comando ``git rebase -i`` (onde o -i significa interativo) serve para editar, limpar e organizar o histórico de commits locais antes de você enviá-los para o servidor compartilhado.Diferente do rebase comum, que apenas move os commits em bloco, o modo interativo abre um painel no seu editor de texto que permite alterar o passado linha por linha.
 
     git rebase -i
-
-Para usá-lo, você precisa dizer ao Git a partir de qual ponto quer editar. O cenário mais comum é olhar para os seus últimos commits.Se você quer organizar os seus últimos 3 commits, digite:
 ### *Como Usar?*
 Ao usar o ``git rebase -i``, geralmente precisamos informar ao git a partir de qual ponto queremos usar. O mais comum é olhar os últimos commits, deixando o comando da seguinte forma:
 
@@ -561,7 +563,6 @@ Para olhar os últimos 5 commits: ``git rebase -i HEAD~5``
 <hr>
 
 ## Organização Desde o Inicial
-
 O comando ``git rebase -i --root`` serve para abrir o rebase interativo desde o primeiríssimo commit da história do seu repositório.Por padrão, quando você faz um git rebase -i, você precisa passar um ponto de partida (como HEAD~3 para ver os últimos 3 commits). No entanto, o Git normalmente não permite que você altere o primeiro commit da história (o commit inicial) usando essa sintaxe. O modificador --root resolve isso, permitindo que você reescreva absolutamente todo o histórico da branch atual, do início ao fim:
 
     git rebase -i --root
