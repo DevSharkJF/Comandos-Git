@@ -549,7 +549,8 @@ Se você usar o git merge, o Git criará um commit extra apenas para juntar as d
 * Ele reaplica os seus commits da feature um por um, bem no final dessa nova linha da main.
 
 O resultado é um histórico limpo e contínuo, como se você tivesse começado a trabalhar na feature já a partir da versão mais recente da main.
-<hr>
+
+``Obs:`` O Git só executa o rebase depois que o editor é **salvo e fechado**. Enquanto o editor estiver aberto, o Git entende que o usuário ainda está editando as instruções do rebase.
 
 ## Rebase
 Faz o `rebase` entre uma branch e a branch main.
@@ -562,12 +563,41 @@ Faz o `rebase` entre uma branch e a branch main.
 O comando ``git rebase -i`` (onde o -i significa interativo) serve para editar, limpar e organizar o histórico de commits locais antes de você enviá-los para o servidor compartilhado.Diferente do rebase comum, que apenas move os commits em bloco, o modo interativo abre um painel no seu editor de texto que permite alterar o passado linha por linha.
 
     git rebase -i
+
 ### *Como Usar?*
 Ao usar o ``git rebase -i``, geralmente precisamos informar ao git a partir de qual ponto queremos usar. O mais comum é olhar os últimos commits, deixando o comando da seguinte forma:
 
     git rebase -i HEAD~n°_de_commits
 
 Para olhar os últimos 5 commits: ``git rebase -i HEAD~5``
+
+### *Alterar Commit*
+Para alterar os últimos 3 commits:
+
+    git rebase -i HEAD~3
+
+O editor será aberto com as linhas representando os commits:
+
+    pick f7f3f6d alteração no read.me
+    pick 310154e adicionado arquivo script
+    pick a5f4a0d indentação de código
+
+Alterar de ``pick`` para ``edit`` no commit que deseja modificar:
+
+    edit f7f3f6d alteração no read.me
+    pick 310154e adicionado arquivo script
+    pick a5f4a0d indentação de código
+
+**Salvar e fechar editor.**
+
+O Git irá pausar no commit marcado como ``edit``.
+Alterar a mensagem do commit:
+
+    git commit --amend -m "Mensagem"
+
+Aplicar alteração:
+
+    git rebase --continue
 <hr>
 
 ## Organização Desde o Inicial
