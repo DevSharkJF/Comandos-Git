@@ -587,3 +587,150 @@ Ao usar o rebase o Git irá exibir no editor de código alguns comandos:
 * s, squash <commit> = usar o commit, mas mesclar no commit anterior
 
 <br>
+
+# Stash
+O Git tem uma área chamada ``stash`` (esconderijo), onde é armazenado temporariamente alterações na cópia do trabalho, sem fazer commit delas para o repositório, para que o usuário possa trabalhar em outra coisa e depois voltar e fazer a reaplicação mais tarde. Ele é separado do diretório de trabalho, da área de staging e do próprio repositório. O stashing é útil quando você precisa alternar com rapidez o contexto e trabalhar em outra coisa, mas está no meio da alteração de código e não está pronto para fazer commit.
+
+``Obs:`` salva as alterações sem commit (tanto as preparadas quanto as não preparadas) para uso posterior e as reverte da cópia de trabalho
+
+## Iniciando Stash
+O Git stash arquiva alterações não commitadas do seu local de trabalho, ou seja, ele volta para o estado do seu último commit guardando as alterações adicionais que você tinha feito; stashes não são transferidos para o servidor quando você envia por push.
+
+É como se fizesse um backup das modificações dos seus arquivos.
+
+Comando Moderno:
+
+    git stash
+    git stath -m "Mensagem"
+
+Comando Moderno e Completo:
+
+    git stash push
+    git stash push -m "Mensagem"
+
+Comando Legado:
+
+    git stash save
+
+
+Nesse ponto, você está livre para fazer alterações, criar novos commits, alternar ramificações e executar quaisquer outras operações do Git. Quando estiver terminado, volte e aplique mais uma vez seu stash quando estiver pronto.
+### *Exemplo:*
+
+* Estou a trabalhar numa branch e quero mudar para outra branch para fazer alguma coisa, e depois voltar. Não consigo mudar de branch porque tenho alterações não commitadas que iriam dar conflito. Então faço stash das minhas alterações, mudo de branch, faço o que tenho a fazer, volto para trás, e depois unstash.
+<hr>
+
+## Listar
+### *Tipos de Listagem*
+Lista todos os stashes salvos:
+
+    git stash list
+
+Mostra resumo das alterações do stash:
+    git stash show
+
+Mostra o conteúdo completo do stash:
+
+    git stash show -p
+
+Mostra diff completo de stash específico:
+
+    git stash show -p stash@{n}
+
+Mostra stash específico:
+
+    git stash show stash@{n}
+
+## Recuperar
+### *Tipos de Recuperar*
+Recupera o stash sem apagar ele da lista:
+
+    git stash apply
+
+Aplicar stash específico:
+
+    git stash apply stash@{1}
+
+Recupera e remove o stash automaticamente:
+
+    git stash pop  
+
+Recupera stash mantendo estado do index:
+
+    git stash apply --index
+    git stash pop --index
+
+## Apagar
+Remove um stash específico:
+
+    git stash drop stash@{0}
+
+Apaga TODOS os stashes:
+
+    git stash clear
+
+⚠️ cuidado: não tem volta facilmente.
+
+## Stash e Branch
+### Criar branch
+Cria uma branch a partir do stash:
+
+    git stash branch nova-branch
+
+O que ele faz?
+* cria branch
+* aplica stash
+* remove stash automaticamente
+
+## Guardar
+Guarda arquivos não rastreados (untracked)
+
+    git stash push -u
+    git stash -u
+
+ou
+
+    git stash --include-untracked
+
+Guarda tudo:
+
+    git stash -a
+    git stash --all
+
+* arquivos rastreados
+* não rastreados
+* ignorados pelo .gitignore
+
+Guarda apenas arquivos específicos:
+
+    it stash push nome_arquivo.ext
+
+Múltiplos Arquivos:
+
+    git stash push index.js style.css
+
+Você escolhe trecho por trecho:
+
+    git stash push -p
+
+Modo interativo (patch).
+
+Guarda apenas arquivos NÃO staged:
+
+    git stash --keep-index
+
+Mantém os arquivos já adicionados com ``git add.``
+
+Guarda SOMENTE arquivos staged:
+
+    git stash push --staged
+
+## Criar e armazenar
+Cria stash sem registrar oficialmente:
+
+    git stash create
+
+Geralmente usado em scripts.
+
+Armazena um stash criado manualmente:
+
+    git stash store HASH
