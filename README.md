@@ -642,15 +642,13 @@ Comando Legado:
 
     git stash save
 
-
 Nesse ponto, você está livre para fazer alterações, criar novos commits, alternar ramificações e executar quaisquer outras operações do Git. Quando estiver terminado, volte e aplique mais uma vez seu stash quando estiver pronto.
-### *Exemplo:*
 
+### *Exemplo:*
 * Estou a trabalhar numa branch e quero mudar para outra branch para fazer alguma coisa, e depois voltar. Não consigo mudar de branch porque tenho alterações não commitadas que iriam dar conflito. Então faço stash das minhas alterações, mudo de branch, faço o que tenho a fazer, volto para trás, e depois unstash.
 <hr>
 
 ## Listar
-### *Tipos de Listagem*
 Lista todos os stashes salvos:
 
     git stash list
@@ -669,9 +667,9 @@ Mostra diff completo de stash específico:
 Mostra stash específico:
 
     git stash show stash@{n}
+<hr>
 
 ## Recuperar
-### *Tipos de Recuperar*
 Recupera o stash sem apagar ele da lista:
 
     git stash apply
@@ -688,6 +686,7 @@ Recupera stash mantendo estado do index:
 
     git stash apply --index
     git stash pop --index
+<hr>
 
 ## Apagar
 Remove um stash específico:
@@ -697,38 +696,22 @@ Remove um stash específico:
 Apaga TODOS os stashes:
 
     git stash clear
-
-⚠️ cuidado: não tem volta facilmente.
-
-## Stash e Branch
-### Criar branch
-Cria uma branch a partir do stash:
-
-    git stash branch nova-branch
-
-O que ele faz?
-* cria branch
-* aplica stash
-* remove stash automaticamente
+<hr>
 
 ## Guardar
 Guarda arquivos não rastreados (untracked)
 
     git stash push -u
     git stash -u
-
-ou
-
     git stash --include-untracked
 
 Guarda tudo:
 
     git stash -a
     git stash --all
-
-* arquivos rastreados
-* não rastreados
-* ignorados pelo .gitignore
+* Arquivos rastreados
+* Não rastreados
+* Ignorados pelo .gitignore
 
 Guarda apenas arquivos específicos:
 
@@ -738,29 +721,46 @@ Múltiplos Arquivos:
 
     git stash push index.js style.css
 
-Você escolhe trecho por trecho:
+Escolhe trecho por trecho:
 
     git stash push -p
-
 Modo interativo (patch).
 
 Guarda apenas arquivos NÃO staged:
 
     git stash --keep-index
-
 Mantém os arquivos já adicionados com ``git add.``
 
 Guarda SOMENTE arquivos staged:
 
     git stash push --staged
+<hr>
 
-## Criar e armazenar
-Cria stash sem registrar oficialmente:
+## Stash e Branch
+### *Criar branch*
+Cria uma branch a partir do stash:
+
+    git stash branch nova-branch
+
+O que ele faz?
+* Cria branch
+* Aplica stash
+* Remove stash automaticamente
+<hr>
+
+## Stash Manual
+### *Criar*
+É possível criar stashes que não ficam salvas na pilha (``stash list``) automaticamente.
+
+Cria um stash sem registrar oficialmente, apenas gerando um identificador (hash) do commit temporário:
 
     git stash create
+--> **Identificador (HASH)** = a1b2c3d4e5f6
 
-Geralmente usado em scripts.
+### *Armazenar*
+Serve para pegar um stash criado manualmente e armazená-lo oficialmente na lista de stashes.
 
 Armazena um stash criado manualmente:
 
-    git stash store HASH
+    git stash store n°_hash
+Após armazenar, o stash irá aparecer salvo na lista (``stash list``).
