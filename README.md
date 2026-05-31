@@ -110,10 +110,79 @@ Pode adicionar o arquivo geral ou do repositório:
 <hr>
 
 ## Remover
+### **Legendas**
+* rm abreviação de *remove*
+* -r é necessário porque é um diretório.
+* -f força a remoção do índice.
+* --cached garante que os arquivos continuem no disco.
+<hr>
+
 ### *Remover Arquivo / Diretório*
 
     git rm nome_arquivo.extensão
     git rm -r diretorio
+    git clean -df
+
+### *Listar Removidos*
+Lista arquivos a serem removidos:
+
+    git clean -n
+Lista arquivos e diretórios a serem removidos:
+
+    git clean -df
+
+### *Remover do Controle do Git (Diretório)*
+Remover um diretório do controle de versão do Git sem apagar os arquivos do computador:
+
+    git rm -rf --cached nome-diretorio
+Além de remover, mantém todos os arquivos fisicamente no computador. Útil quando adiciona uma pasta por engano e deseja ignorá-la com ``.gitignore``. O ``-r`` é necessário **sempre** que desejar remover um **diretório**.
+
+### Exemplo:
+Imagine que um usuário tenha esses diretórios:
+
+logs/
+├── app.log
+├── error.log
+└── access.log
+
+imagens/
+├── foto1.png
+├── foto2.png
+
+O usuário queria subir somente o diretório de imagens, mas por engano ele sobe o diretório de logs com:
+* git add .
+* git commit -m "Adionado fotos"
+Agora o diretório ``logs`` está sendo rastreado pelo Git.
+
+Para resolver essa situação o usuário pode:
+1) Adicionar o diretório no .gitignore
+2) Remover do índice: git rm -rf --cached logs
+3) Fazer um novo commit: git commit -m "removendo node_modules do repositório"
+
+**Resultado:** O diretório continua existindo no computador, o git para de monitorar.
+
+### *Remover do Controle do Git (Arquivo)*
+Remover um arquivo do controle de versão do Git sem apagar do computador:
+
+    git rm --cache
+Por ser somente arquivo, e não diretório não é necessário usar ``-r``, porém se usar o git ignora, sendo redundante.
+### Exemplo:
+Imagine o mesmo cenário anterior, porém dessa vez o usário subiu o arquivo .env, contendo:
+
+DB_HOST=localhost
+DB_USER=admin
+DB_PASSWORD=123456
+
+1) Adicionar o arquivo .env no .gitignore
+2) Remover do índice: git rm --cached .env
+3) Fazer novo commit: git commit -m "removendo .env do controle de versão".
+
+**Resultado:** O arquivo continua existindo no computador e não é rastreado pelo git
+
+### *Remover do Git e PC*
+Remove diretórios ou arquivos do controle de versão do git, do repositório, índice e também do computador:
+
+    git rm -rf nome-diretório_ou_arquivo
 <hr>
 
 ## Histórico
@@ -177,6 +246,12 @@ Exibe todo os logs bem detalhados:
 Visualizador de histórico gráfico:
 
     gitk
+
+### *Histórico de Modificação*
+Exibe histórico de modificação de um arquivo
+
+    git log --diff-filter=M -- <caminho_arquivo>
+* O **M** pode ser substituido por: Adicionado (A), Copiado (C), Apagado (D), Modificado (M), Renomeado (R)
 <hr>
 
 ## Desfazer
@@ -244,6 +319,11 @@ Realiza o commit de um arquivo informando uma mensagem:
 Altera as mensagens de um commit:
 
     git commit --amend -m "Nova Mensagem"
+    git commit -am "Nova Mensagem"
+
+Altera e adiciona as novas modificações no último commit sem alterar a mensagem:
+
+    git comiit -amend --no-edit
 
 <br>
 
@@ -764,3 +844,12 @@ Armazena um stash criado manualmente:
 
     git stash store n°_hash
 Após armazenar, o stash irá aparecer salvo na lista (``stash list``).
+
+# Diferenças
+Mostra o que foi alterado e o que ainda não foi adicionado para ser commitado:
+
+    git diff
+
+Mostra as diferenças entre dois commits:
+
+    git diff nome-commit..nome-commit
