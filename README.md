@@ -5,6 +5,20 @@ Link para fazer o download do git e sua documentação:
 
 <br>
 
+# Ajuda
+## Geral
+Mostra os comandos do git, abreviações e suas devidas explicações:
+
+    git help
+
+## Comando Específico:
+Abre uma janela no navegador padrão, mostrando sinopse, descrição, comandos, opções, exemplos e configurações, relacionados ao comando que deseja obter ajuda:
+
+    git help add
+    git help commit
+
+<br>
+
 # Estados
 * Modificado (Modified): Arquivo foi alterado no diretório de trabalho, mas as mudanças não foram salvas no Github.
 * Preparado (staged): Marca a versão atual de um arquivo modificado para que ele seja incluído no próximo commit.
@@ -254,6 +268,15 @@ Exibe histórico de modificação de um arquivo
 
     git log --diff-filter=M -- <caminho_arquivo>
 * O **M** pode ser substituido por: Adicionado (A), Copiado (C), Apagado (D), Modificado (M), Renomeado (R)
+
+Exibe revisão e autor da última modificação de um bloco de linhas:
+
+    git blame -L 12,22 nome_arquivo.extensão
+
+### *Remover Histórico*
+Remove todo o histórico de um arquivo:
+
+    git filter-branch --tree-filter 'rm -f nome_arquivo.extensão' HEAD
 <hr>
 
 ## Desfazer
@@ -680,6 +703,9 @@ Alterar a mensagem do commit:
 Aplicar alteração:
 
     git rebase --continue
+
+### *Juntar Commits*
+Para juntar vários commits, basta seguir os mesmos passos acima, porém marcar os commits que devem ser juntados com ``squash``.
 <hr>
 
 ## Organização Desde o Inicial
