@@ -6,9 +6,11 @@ Link para fazer o download do git e sua documentação:
 <br>
 
 # Estados
-* Modificado (Modified)
-* Preparado (staged)
-* Consolidado (Commited)
+* Modificado (Modified): Arquivo foi alterado no diretório de trabalho, mas as mudanças não foram salvas no Github.
+* Preparado (staged): Marca a versão atual de um arquivo modificado para que ele seja incluído no próximo commit.
+* Consolidado (Commited): Os dados foram salvos no banco de dados local.
+* Não Rastreado (Untracked): Arquivos novos no projeto que o Git ainda não monitora (precisar **git add** para adicioná-los).
+* Não Modificado (Unmodified):  Arquivos cujos conteúdos são exatamente iguais aos da última versão salva.
 
 <br>
 
@@ -853,3 +855,42 @@ Mostra o que foi alterado e o que ainda não foi adicionado para ser commitado:
 Mostra as diferenças entre dois commits:
 
     git diff nome-commit..nome-commit
+
+<br>
+
+# Tags
+## Criar
+### *Tag Leve*
+
+    git tag vs-1.1
+
+### *Tag Anotada*
+
+    git tag -a vs-1.1 -m "Mensagem"
+
+### *Tag Assinada*
+Para criar uma tag assinada é necessário uma chave privada (GNU Privacy Guard - GPG).
+
+    git tag -s vs-1.1 -m "Mensagem"
+
+### *Tag Commit*
+Cria uma tag a partir de um commit (hash):
+
+    git tag -a vs-1.2 n°_hash
+
+### *Tag de Repositório Remoto*
+Cria uma tag no repositório remoto:
+
+    git push origin vs-1.2
+    git push origin main versao-0.1.0
+
+Cria todas as tags locais no repositório remoto:
+
+    git push origin --tags
+<hr>
+
+## Listar
+### *Listar Versões*
+Lista todas as versões:
+
+    git tag
