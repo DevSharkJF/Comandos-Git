@@ -6,12 +6,12 @@ Link para fazer o download do git e sua documentação:
 <br>
 
 # Ajuda
-## Geral
+> ## Geral
 Mostra os comandos do git, abreviações e suas devidas explicações:
 
     git help
 
-## Comando Específico:
+> ## Comando Específico:
 Abre uma janela no navegador padrão, mostrando sinopse, descrição, comandos, opções, exemplos e configurações, relacionados ao comando que deseja obter ajuda:
 
     git help add
