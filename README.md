@@ -6,12 +6,12 @@ Link para fazer o download do git e sua documentação:
 <br>
 
 # Ajuda
-> ## Geral
+## Geral
 Mostra os comandos do git, abreviações e suas devidas explicações:
 
     git help
 
-> ## Comando Específico:
+## Comando Específico:
 Abre uma janela no navegador padrão, mostrando sinopse, descrição, comandos, opções, exemplos e configurações, relacionados ao comando que deseja obter ajuda:
 
     git help add
@@ -31,39 +31,39 @@ Abre uma janela no navegador padrão, mostrando sinopse, descrição, comandos, 
 # Configurações
 As configurações do GIT são armazenadas no arquivo ``.gitconfig`` localizado dentro do diretório do usuário do Sistema Operacinal.
 
-### *Listar Configurações*
+> ### *Listar Configurações*
     git config --list
 <hr>
 
 ## Local
-### *Setar Nome*
+> ### *Setar Nome*
 Define seu nome local:
 
     git config --local user.name "Seu Nome"
 
-### *Setar Email*
+> ### *Setar Email*
 Define o email local:
 
     git config --local user.email "seu@email.com"
 <hr>
 
 ## Global 
-### *Setar Nome*
+> ### *Setar Nome*
 Define o nome globalmente:
 
     git config --global user.name "Seu Nome"
 
-### *Setar Email*
+> ### *Setar Email*
 Define o email globalmente:
 
     git config --global user.name "seu@email.com"
 
-### *Configurações Globais*
+> ### *Configurações Globais*
 Lista as configurações globais:
 
     git config --global --list
 
-### *Editor Padrão*
+> ### *Editor Padrão*
 Define o vim como editor padrão:
 
     git config --global core.editor "vim"
@@ -76,7 +76,7 @@ Volta para o editor padrão:
 
     git config --global --unset core.editor
 
-### *Ignorar Arquivo*
+> ### *Ignorar Arquivo*
 Ignora um ou mais arquivos globais:
 
     git config --global core.excludesfile nome-arquivo
