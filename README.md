@@ -95,17 +95,17 @@ Arquivos, diretórios ou extensões listados no ``.gitignore`` não serão adici
 
 # Ações de Arquivos e Diretórios
 ## Adicionar
-### *Adicionar Arquivo Específico*
+> ### *Adicionar Arquivo Específico*
 Adiciona somente um arquivo de todo o repositório:
 
     git add nome_arquivo.extensao
 
-### *Adicionar Diretório*
+> ### *Adicionar Diretório*
 Adiciona um diretório completo:
 
     git add nome_diretório
 
-### *Adicionar Tudo*
+> ### *Adicionar Tudo*
 Adiciona todos os arquivos (novos, modificados e removidos) e pastas do diretório em que o comando é digitado:
 
     git add .
@@ -119,27 +119,27 @@ Adiciona arquivos modificados ou removidos:
     git add -u
     git add -update
 
-### *Adicionar arquivo listado no .gitignore*
+> ### *Adicionar arquivo listado no .gitignore*
 Pode adicionar o arquivo geral ou do repositório:
 
     git add -f arquivo_gitignore.extensão
 <hr>
 
 ## Remover
-### **Legendas**
+> ### **Legendas**
 * rm abreviação de *remove*
 * -r é necessário porque é um diretório.
 * -f força a remoção do índice.
 * --cached garante que os arquivos continuem no disco.
 <hr>
 
-### *Remover Arquivo / Diretório*
+> ### *Remover Arquivo / Diretório*
 
     git rm nome_arquivo.extensão
     git rm -r diretorio
     git clean -df
 
-### *Listar Removidos*
+> ### *Listar Removidos*
 Lista arquivos a serem removidos:
 
     git clean -n
@@ -147,7 +147,7 @@ Lista arquivos e diretórios a serem removidos:
 
     git clean -df
 
-### *Remover do Controle do Git (Diretório)*
+> ### *Remover do Controle do Git (Diretório)*
 Remover um diretório do controle de versão do Git sem apagar os arquivos do computador:
 
     git rm -rf --cached nome-diretorio
@@ -178,7 +178,7 @@ Para resolver essa situação o usuário pode:
 
 **Resultado:** O diretório continua existindo no computador, o git para de monitorar.
 
-### *Remover do Controle do Git (Arquivo)*
+> ### *Remover do Controle do Git (Arquivo)*
 Remover um arquivo do controle de versão do Git sem apagar do computador:
 
     git rm --cache
@@ -196,7 +196,7 @@ DB_PASSWORD=123456
 
 **Resultado:** O arquivo continua existindo no computador e não é rastreado pelo git
 
-### *Remover do Git e PC*
+> ### *Remover do Git e PC*
 Remove diretórios ou arquivos do controle de versão do git, do repositório, índice e também do computador:
 
     git rm -rf nome-diretório_ou_arquivo
