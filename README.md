@@ -921,3 +921,34 @@ Cria todas as tags locais no repositório remoto:
 Lista todas as versões:
 
     git tag
+
+<br>
+
+# Bisect (Pesquisa Binária)
+O bisect serve para encontrar um commit que esteja gerando um bug ou inconsistência entre uma sequência de commits.
+
+## Iniciar
+Inicia uma pesquisa binária:
+
+    git bisect start
+
+## Marcar
+### *Commit Ruim*
+Marca um commit atual como ruim:
+
+    git bisect bad
+
+### *Commit Bom*
+Marca um commit atual como bom, após o git navegar entre os commits para tentar achar o que está com problema:
+
+    git bisect good
+
+### *Tag Boa*
+Marca o commit de uma tag que está sem o bug:
+
+    git bisect good vs-1.1
+
+## Finalizar
+Depois de encontrar o commit com problema, para retornar ao HEAD, é necessário utilizar:
+
+    git bisect reset
