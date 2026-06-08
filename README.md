@@ -151,7 +151,8 @@ Lista arquivos e diretórios a serem removidos:
 Remover um diretório do controle de versão do Git sem apagar os arquivos do computador:
 
     git rm -rf --cached nome-diretorio
-Além de remover, mantém todos os arquivos fisicamente no computador. Útil quando adiciona uma pasta por engano e deseja ignorá-la com ``.gitignore``. O ``-r`` é necessário **sempre** que desejar remover um **diretório**.
+    git rm -r --cached nome-diretório
+Além de remover, mantém todos os arquivos fisicamente no computador. Útil quando adiciona uma pasta por engano e deseja ignorá-la com ``.gitignore``. O ``-r`` é necessário **sempre** que desejar remover um **diretório**. O ``-f (force)`` força a remoção quando o Git detecta alguma condição que normalmente impediria a operação.
 
 ### Exemplo:
 Imagine que um usuário tenha esses diretórios:
@@ -920,3 +921,34 @@ Cria todas as tags locais no repositório remoto:
 Lista todas as versões:
 
     git tag
+
+<br>
+
+# Bisect (Pesquisa Binária)
+O bisect serve para encontrar um commit que esteja gerando um bug ou inconsistência entre uma sequência de commits.
+
+## Iniciar
+Inicia uma pesquisa binária:
+
+    git bisect start
+
+## Marcar
+### *Commit Ruim*
+Marca um commit atual como ruim:
+
+    git bisect bad
+
+### *Commit Bom*
+Marca um commit atual como bom, após o git navegar entre os commits para tentar achar o que está com problema:
+
+    git bisect good
+
+### *Tag Boa*
+Marca o commit de uma tag que está sem o bug:
+
+    git bisect good vs-1.1
+
+## Finalizar
+Depois de encontrar o commit com problema, para retornar ao HEAD, é necessário utilizar:
+
+    git bisect reset
