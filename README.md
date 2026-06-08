@@ -207,7 +207,7 @@ Mostra algumas opções disponíveis para ajudar:
 
     git log --help
 
-### *Exibir*
+> ### *Exibir*
 Exibe o histórico:
 
     git log
@@ -224,7 +224,7 @@ Exibe histórico de um autor:
 
     git log --author=usuario
 
-### *Histórico em Linha*
+> ### *Histórico em Linha*
 Exibe o histórico em linha:
 
     git log --oneline
@@ -233,7 +233,7 @@ Exibe informações resumidas (hash e comentário):
 
     git log --pretty=oneline
 
-### *Histórico Detalhado*
+> ### *Histórico Detalhado*
 Exibe os detalhes, mostrando o que aconteceu no projeto:
 
     git log -p
@@ -259,12 +259,12 @@ Exibe todo os logs bem detalhados:
 
     git log --graph --oneline --all
 
-### *Gráfico*
+>### *Gráfico*
 Visualizador de histórico gráfico:
 
     gitk
 
-### *Histórico de Modificação*
+> ### *Histórico de Modificação*
 Exibe histórico de modificação de um arquivo
 
     git log --diff-filter=M -- <caminho_arquivo>
@@ -274,41 +274,41 @@ Exibe revisão e autor da última modificação de um bloco de linhas:
 
     git blame -L 12,22 nome_arquivo.extensão
 
-### *Remover Histórico*
+> ### *Remover Histórico*
 Remove todo o histórico de um arquivo:
 
     git filter-branch --tree-filter 'rm -f nome_arquivo.extensão' HEAD
 <hr>
 
 ## Desfazer
-### *Desfazer Alteração Local (Working Directory)*
+> ### *Desfazer Alteração Local (Working Directory)*
 Descarta alterações do arquivo, quando não foi adicionado na **staged area**:
 
     git checkout -- nome_arquivo.extensão
     git restore nome_arquivo.extensão
 
-### *Desfazer Tudo*
+> ### *Desfazer Tudo*
 Descarta alterações de todos os arquivos:
 
     git checkout .
     git restore .
 
-### *Desfazer Alteração Local (Stating Area)*
+> ### *Desfazer Alteração Local (Stating Area)*
 Desmarca o arquivo para ser commitado, não foi adicionado na **staged area**:
 
     git reset HEAD nome_arquivo.extensão
 
-### *Desfazer Commit*
+> ### *Desfazer Commit*
 Desfaz o último commit, mantendo todas as alterações dods arquivos intactas para um novo commit, na **staged area**:
 
     git reset --soft HEAD^	
 
-### *Apagar Commit*
+> ### *Apagar Commit*
 Apaga permanentemente o último commit e descarta todas as alterações não salvas feitas nos arquivos desde então. Retorna o repositório para o estado que estava no penúltimo commit:
 
     git reset --hard HEAD^	
 
-### *Desfazer Alteração Commit*
+> ### *Desfazer Alteração Commit*
 Remove as alterações no código do commit, criando um novo commit. Não apaga o commit original do histórico:
 
     git revert nome-hash
@@ -317,7 +317,7 @@ Remove as alterações no código do commit, criando um novo commit. Não apaga 
 
 # Commit
 Comitar é ação de salvar os arquivos e os diretórios e prepará-los para enviar ao repositório
-### *Tipos*
+> ### *Tipos*
 Realiza o commit de um arquivo:
 
     git commit nome_arquivo.extensão
@@ -357,7 +357,7 @@ Altera e adiciona as novas modificações no último commit sem alterar a mensag
 Podem ser criados localmente ou de forma remota.
 
 ## Local
-### *Novo Repositório*
+> ### *Novo Repositório*
 Cria um novo repositório de forma local:
 
     git init
@@ -366,7 +366,7 @@ Cria um repositório que não terá working tree, ou seja, não terá cópia dos
 
     git init --bare
 
-### *Status*
+> ### *Status*
 Analisa o estado do repositório:
 
     git status
@@ -379,7 +379,7 @@ Analisa o estado do repositório:
 * https://github.com/nome_usuario/nome_repositório
 * https://github1s.com/nome_usuario/nome_repositório
 
-### *Exibir Repositório*
+> ### *Exibir Repositório*
 Lista os repositórios remotos:
 
     git remote
@@ -392,25 +392,25 @@ Exibi informações dos repositórios remotos:
 
     git remote show origin
 
-### *Adicionar*
+> ### *Adicionar*
 Adiciona um repositório remoto:
 
     git remote add origin url_repositorio
     git remote set-url origin url_repositorio
 
-### *Renomear*
+> ### *Renomear*
 Renomeia um repositório remoto:
 
     git remote rename origin novo-nome
     git remote rename nome-atual novo-nome
 
-### *Desvincular*
+> ### *Desvincular*
 Desvincula um repositório remoto:
 
     git remote remove nome-repositório
     git remote rm nome-repositório
 
-### *Clone*
+> ### *Clone*
 Clona um repositório remoto já existente:
 
     git clone url_repositório
@@ -420,7 +420,7 @@ Baixa o repositório remoto em uma branch específica:
     git clone --branch nome-branch url_repositório
     git clone -b nome-branch url_repositório
 
-### *Enviar Arquivos*
+> ### *Enviar Arquivos*
 Envia arquivos e diretórios para o repositório remoto. Ao usar a primeira opção, ficará salvo e os demais envios não irão precisar colocar a branch:
 
     git push -u origin master
@@ -437,12 +437,12 @@ Envia os dados de todas as branches para o repositório remoto:
 
 ## Atualizar Repositório
 Atualiza o repositório local de acordo com as atualizações do repositório remoto.
-### *Atualiza os arquivos na branch atual*
+> ### *Atualiza os arquivos na branch atual*
 Pega as atualizações do repositório remoto e aplica no local:
 
     git pull
 
-### *Vizualizar Alterações*
+> ### *Vizualizar Alterações*
 Busca informações sobre um repositório remoto, mas não altera nenhuma branch:
 
     git fetch
@@ -463,7 +463,7 @@ Ao final do projeto, quando todas as branches estão funcionando, elas são mesc
 <hr>
 
 ## Ações
-### *Branch Principal*
+> ### *Branch Principal*
 Volta para o branch principal / master:
 
     git checkout master
@@ -474,23 +474,23 @@ Volta para a branch anterior sem escrever o nome:
 <hr>
 
 ## Criar Branch
-### *Criar uma Branch*
+> ### *Criar uma Branch*
 
     git branch nome-branch
 
-### *Criar e Trocar*
+> ### *Criar e Trocar*
 Cria um novo branch e troca:
 
     git checkout -b nome-branch
     git switch -c nome-branch
 
-### *Trocar Existente*
+> ### *Trocar Existente*
 Troca para um branch existente:
 
     git checkout nome-branch
     git switch nome-branch
 
-### *Branch no Repositório Remoto*
+> ### *Branch no Repositório Remoto*
 Cria um branch no repositório remoto com mesmo nome:
 
     git push origin nome-branch
@@ -509,7 +509,7 @@ Baixa um branch remoto para edição:
 <hr>
 
 ## Listar Branches
-### *Tipos de Listagem*
+> ### *Tipos de Listagem*
 Lista as branches locais:
 
     git branch
@@ -522,7 +522,7 @@ Lista branches com informações dos últimos commits:
 
     git branch -v
 
-### *Listagem de Merged*
+> ### *Listagem de Merged*
 Lista branches que já foram fundidos (merged) com o `master`:
 
     git branch --merged
@@ -533,7 +533,7 @@ Lista branches que não foram fundidos (merged) com o `master`:
 <hr>
 
 ## Apagar Branch
-### *Tipos de Delete*
+> ### *Tipos de Delete*
 Deleta a branch somente sem conflitos:
 
     git branch -d nome-branch
@@ -548,7 +548,7 @@ Apaga um branch remoto:
 <hr>
 
 ## Renomear Branch
-### *Tipos de Rename*
+> ### *Tipos de Rename*
 Renomeia a branch, se estiver dentro dela:
 
     git branch -m novo-nome
@@ -572,7 +572,7 @@ A mensagem indicando um `merge` manual será:
 	CONFLICT (content): Merge conflict in meu_arquivo.txt
 	Automatic merge failed; fix conflicts and then commit the result
 
-### *Fazer Merge*
+> ### *Fazer Merge*
 Faz Merge do branch atual com uma selecionada:
     git merge nome-branch
 
@@ -585,24 +585,24 @@ Faz Merge trocando para o branch que deseja:
     git checkout nome-branch
     git merge nome-branch
 
-### *Cancelar Merge*
+> ### *Cancelar Merge*
 Cancela o merge e volta ao estado anterior:
     git merge --abort
 
-### *Squash Merge*
+> ### *Squash Merge*
 Combina todas as alterações de um branch em um único commit, em vez de cada commit ser individual:
 
     git merge --squash nome-branch
 <hr>
 
 ## Merge Non Fast Forward
-### *NON-FAST-FORWARD*
+> ### *NON-FAST-FORWARD*
 O comando `git merge --no-ff` serve para forçar a criação de um commit de merge, mesmo quando o Git conseguiria juntar as alterações automaticamente usando `fast-forward`.
 
     git merge --no-ff nome-branch
 `Fast-Forward:` Quando no histórico, não existe um commit de merge, deixando o histórico linear.
 
-### **Sem Usar --no-f**
+> ### **Sem Usar --no-f**
 Você criou um branch feature, fez commits nela ``(C e D)``, e a main não mudou desde então:
 
     main
@@ -616,7 +616,7 @@ Depois de efetuar o merge, o Git simplesmente move a main para frente:
     git merge feature
     main A---B---C---D
 
-### **Usando --no-f**
+> ### **Usando --no-f**
 A vantagem é mostrar claramente que houve um merge, de onde ele veio, quais commits pertencem a ele e quando foi integrada, deixando o histórico mais organizado com as informações:
 
     git merge --no-ff feature
@@ -670,14 +670,14 @@ O comando ``git rebase -i`` (onde o -i significa interativo) serve para editar, 
 
     git rebase -i
 
-### *Como Usar?*
+> ### *Como Usar?*
 Ao usar o ``git rebase -i``, geralmente precisamos informar ao git a partir de qual ponto queremos usar. O mais comum é olhar os últimos commits, deixando o comando da seguinte forma:
 
     git rebase -i HEAD~n°_de_commits
 
 Para olhar os últimos 5 commits: ``git rebase -i HEAD~5``
 
-### *Alterar Commit*
+> ### *Alterar Commit*
 Para alterar os últimos 3 commits:
 
     git rebase -i HEAD~3
@@ -705,7 +705,7 @@ Aplicar alteração:
 
     git rebase --continue
 
-### *Juntar Commits*
+> ### *Juntar Commits*
 Para juntar vários commits, basta seguir os mesmos passos acima, porém marcar os commits que devem ser juntados com ``squash``.
 <hr>
 
@@ -846,7 +846,7 @@ Guarda SOMENTE arquivos staged:
 <hr>
 
 ## Stash e Branch
-### *Criar branch*
+> ### *Criar branch*
 Cria uma branch a partir do stash:
 
     git stash branch nova-branch
@@ -858,7 +858,7 @@ O que ele faz?
 <hr>
 
 ## Stash Manual
-### *Criar*
+> ### *Criar*
 É possível criar stashes que não ficam salvas na pilha (``stash list``) automaticamente.
 
 Cria um stash sem registrar oficialmente, apenas gerando um identificador (hash) do commit temporário:
@@ -866,7 +866,7 @@ Cria um stash sem registrar oficialmente, apenas gerando um identificador (hash)
     git stash create
 --> **Identificador (HASH)** = a1b2c3d4e5f6
 
-### *Armazenar*
+> ### *Armazenar*
 Serve para pegar um stash criado manualmente e armazená-lo oficialmente na lista de stashes.
 
 Armazena um stash criado manualmente:
@@ -887,25 +887,25 @@ Mostra as diferenças entre dois commits:
 
 # Tags
 ## Criar
-### *Tag Leve*
+> ### *Tag Leve*
 
     git tag vs-1.1
 
-### *Tag Anotada*
+> ### *Tag Anotada*
 
     git tag -a vs-1.1 -m "Mensagem"
 
-### *Tag Assinada*
+> ### *Tag Assinada*
 Para criar uma tag assinada é necessário uma chave privada (GNU Privacy Guard - GPG).
 
     git tag -s vs-1.1 -m "Mensagem"
 
-### *Tag Commit*
+> ### *Tag Commit*
 Cria uma tag a partir de um commit (hash):
 
     git tag -a vs-1.2 n°_hash
 
-### *Tag de Repositório Remoto*
+> ### *Tag de Repositório Remoto*
 Cria uma tag no repositório remoto:
 
     git push origin vs-1.2
@@ -917,7 +917,7 @@ Cria todas as tags locais no repositório remoto:
 <hr>
 
 ## Listar
-### *Listar Versões*
+> ### *Listar Versões*
 Lista todas as versões:
 
     git tag
@@ -933,17 +933,17 @@ Inicia uma pesquisa binária:
     git bisect start
 
 ## Marcar
-### *Commit Ruim*
+> ### *Commit Ruim*
 Marca um commit atual como ruim:
 
     git bisect bad
 
-### *Commit Bom*
+> ### *Commit Bom*
 Marca um commit atual como bom, após o git navegar entre os commits para tentar achar o que está com problema:
 
     git bisect good
 
-### *Tag Boa*
+> ### *Tag Boa*
 Marca o commit de uma tag que está sem o bug:
 
     git bisect good vs-1.1
