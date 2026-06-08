@@ -31,39 +31,39 @@ Abre uma janela no navegador padrão, mostrando sinopse, descrição, comandos, 
 # Configurações
 As configurações do GIT são armazenadas no arquivo ``.gitconfig`` localizado dentro do diretório do usuário do Sistema Operacinal.
 
-### *Listar Configurações*
+> ### *Listar Configurações*
     git config --list
 <hr>
 
 ## Local
-### *Setar Nome*
+> ### *Setar Nome*
 Define seu nome local:
 
     git config --local user.name "Seu Nome"
 
-### *Setar Email*
+> ### *Setar Email*
 Define o email local:
 
     git config --local user.email "seu@email.com"
 <hr>
 
 ## Global 
-### *Setar Nome*
+> ### *Setar Nome*
 Define o nome globalmente:
 
     git config --global user.name "Seu Nome"
 
-### *Setar Email*
+> ### *Setar Email*
 Define o email globalmente:
 
     git config --global user.name "seu@email.com"
 
-### *Configurações Globais*
+> ### *Configurações Globais*
 Lista as configurações globais:
 
     git config --global --list
 
-### *Editor Padrão*
+> ### *Editor Padrão*
 Define o vim como editor padrão:
 
     git config --global core.editor "vim"
@@ -76,7 +76,7 @@ Volta para o editor padrão:
 
     git config --global --unset core.editor
 
-### *Ignorar Arquivo*
+> ### *Ignorar Arquivo*
 Ignora um ou mais arquivos globais:
 
     git config --global core.excludesfile nome-arquivo
@@ -921,34 +921,3 @@ Cria todas as tags locais no repositório remoto:
 Lista todas as versões:
 
     git tag
-
-<br>
-
-# Bisect (Pesquisa Binária)
-O bisect serve para encontrar um commit que esteja gerando um bug ou inconsistência entre uma sequência de commits.
-
-## Iniciar
-Inicia uma pesquisa binária:
-
-    git bisect start
-
-## Marcar
-### *Commit Ruim*
-Marca um commit atual como ruim:
-
-    git bisect bad
-
-### *Commit Bom*
-Marca um commit atual como bom, após o git navegar entre os commits para tentar achar o que está com problema:
-
-    git bisect good
-
-### *Tag Boa*
-Marca o commit de uma tag que está sem o bug:
-
-    git bisect good vs-1.1
-
-## Finalizar
-Depois de encontrar o commit com problema, para retornar ao HEAD, é necessário utilizar:
-
-    git bisect reset
