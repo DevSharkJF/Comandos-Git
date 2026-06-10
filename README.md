@@ -104,6 +104,7 @@ Adiciona somente um arquivo de todo o repositório:
 Adiciona um diretório completo:
 
     git add nome_diretório
+    git add "nome_diretório"
 
 > ### *Adicionar Tudo*
 Adiciona todos os arquivos (novos, modificados e removidos) e pastas do diretório em que o comando é digitado:
