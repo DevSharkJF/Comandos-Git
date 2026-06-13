@@ -20,11 +20,11 @@ Abre uma janela no navegador padrão, mostrando sinopse, descrição, comandos, 
 <br>
 
 # Estados
-* Modificado (Modified): Arquivo foi alterado no diretório de trabalho, mas as mudanças não foram salvas no Github.
-* Preparado (staged): Marca a versão atual de um arquivo modificado para que ele seja incluído no próximo commit.
-* Consolidado (Commited): Os dados foram salvos no banco de dados local.
-* Não Rastreado (Untracked): Arquivos novos no projeto que o Git ainda não monitora (precisar **git add** para adicioná-los).
-* Não Modificado (Unmodified):  Arquivos cujos conteúdos são exatamente iguais aos da última versão salva.
+* Modificado (``Modified``): Arquivo foi alterado no diretório de trabalho, mas as mudanças não foram salvas no Github.
+* Preparado (``Staged``): Marca a versão atual de um arquivo modificado para que ele seja incluído no próximo commit.
+* Consolidado (``Commited``): Os dados foram salvos no banco de dados local.
+* Não Rastreado (``Untracked``): Arquivos novos no projeto que o Git ainda não monitora (precisar **git add** para adicioná-los).
+* Não Modificado (``Unmodified``):  Arquivos cujos conteúdos são exatamente iguais aos da última versão salva.
 
 <br>
 
@@ -103,8 +103,7 @@ Adiciona somente um arquivo de todo o repositório:
 > ### *Adicionar Diretório*
 Adiciona um diretório completo:
 
-    git add nome_diretório
-    git add "nome_diretório"
+    git add "nome diretório"
 
 > ### *Adicionar Tudo*
 Adiciona todos os arquivos (novos, modificados e removidos) e pastas do diretório em que o comando é digitado:
