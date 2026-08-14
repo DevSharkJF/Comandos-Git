@@ -721,9 +721,15 @@ O comando ``git rebase -i --root`` serve para abrir o rebase interativo desde o 
 
 ## Comandos
 Ao usar o rebase o Git irá exibir no editor de código alguns comandos:
-* p, pick <commit> = usar o commit
-* r, reword <commit> = usar o commit, mas editar a mensagem
-* s, squash <commit> = usar o commit, mas mesclar no commit anterior
+* p, pick <commit> = Mantém o commit, sem alterações
+* r, reword <commit> = Mantém o commit, mas permite alterar a mensagem
+* s, squash <commit> = Mescla o commit com o commit anterior, unindo as mensagens
+* e, edit <commit> = Para execução do rebase no commit e modifica arquivos ou adiciona novas alterações
+* f, fixup <commit> = Semelhante ao `squash`, mas descarta a mensagem deste commit, mantendo apenas a do commit anterior
+* x, exec <commit> = Executa um comando de shell arbitrário para cada commit marcado
+* d, drop <commit> = Remove o commit completamente do histórico
+* b, break <commit> = Para o rebase no ponto que ficou
+* m, merge <commit> = Recria uma merge
 <hr>
 
 ## Apagar Commit
