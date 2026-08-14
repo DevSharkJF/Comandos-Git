@@ -724,6 +724,7 @@ Ao usar o rebase o Git irá exibir no editor de código alguns comandos:
 * p, pick <commit> = usar o commit
 * r, reword <commit> = usar o commit, mas editar a mensagem
 * s, squash <commit> = usar o commit, mas mesclar no commit anterior
+<hr>
 
 ## Apagar Commit
 Com o Rebase é possível apagar um commit do histórico do repositório.
@@ -741,6 +742,7 @@ Copie o número da `HASH` do commit e utilize o comando:
 1) Após isso será aberto um menu com diversos comandos de alterações referente ao commit. Aperte a tecla `i` (**INSERT**) para editar.
 2) Altere o valor de `PICK` para `DROP` no `hash` do commit que deseja apagar
 3) Aperte `ESC` para sair
+4) Aperte `:` para abrir a barra de comando
 4) Digite `WQ` (**Write/Quit**) para escrever e sair.
 5) Manda a alteração com um push forçado `git push --force`
 <br>
