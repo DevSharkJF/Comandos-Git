@@ -657,6 +657,23 @@ Se você usar o git merge, o Git criará um commit extra apenas para juntar as d
 O resultado é um histórico limpo e contínuo, como se você tivesse começado a trabalhar na feature já a partir da versão mais recente da main.
 
 ``Obs:`` O Git só executa o rebase depois que o editor é **salvo e fechado**. Enquanto o editor estiver aberto, o Git entende que o usuário ainda está editando as instruções do rebase.
+<hr>
+
+## Comandos
+Ao usar o rebase o Git irá exibir no editor de código alguns comandos:
+* p, pick <commit> = Mantém o commit, sem alterações
+* r, reword <commit> = Mantém o commit, mas permite alterar a mensagem
+* s, squash <commit> = Mescla o commit com o commit anterior, unindo as mensagens
+* e, edit <commit> = Para execução do rebase no commit e modifica arquivos ou adiciona novas alterações
+* f, fixup <commit> = Semelhante ao `squash`, mas descarta a mensagem deste commit, mantendo apenas a do commit anterior
+* x, exec <commit> = Executa um comando de shell arbitrário para cada commit marcado
+* d, drop <commit> = Remove o commit completamente do histórico
+* b, break <commit> = Para o rebase no ponto que ficou
+* m, merge <commit> = Recria uma merge
+<hr>
+
+## VIM
+Editor de texto que funciona dentro do terminal, usado para aplicar as modificações do Rebase.
 
 ## Rebase
 Faz o `rebase` entre uma branch e a branch main.
@@ -717,19 +734,6 @@ O comando ``git rebase -i --root`` serve para abrir o rebase interativo desde o 
 * Limpar o início do projeto: Se os seus primeiros commits foram bagunçados (ex: "initial commit", "ajuste", "teste"), você pode usar o squash para juntar tudo em um único commit inicial limpo.
 * Corrigir mensagens antigas: Mudar o texto do primeiríssimo commit do projeto que foi escrito com erros de digitação.
 * Remover arquivos pesados do passado: Se você colocou uma senha, chave de API ou um arquivo de 1GB no primeiro commit e depois deletou, ele continua ocupando espaço no histórico. Com o --root, você pode editar o primeiro commit e removê-lo definitivamente
-<hr>
-
-## Comandos
-Ao usar o rebase o Git irá exibir no editor de código alguns comandos:
-* p, pick <commit> = Mantém o commit, sem alterações
-* r, reword <commit> = Mantém o commit, mas permite alterar a mensagem
-* s, squash <commit> = Mescla o commit com o commit anterior, unindo as mensagens
-* e, edit <commit> = Para execução do rebase no commit e modifica arquivos ou adiciona novas alterações
-* f, fixup <commit> = Semelhante ao `squash`, mas descarta a mensagem deste commit, mantendo apenas a do commit anterior
-* x, exec <commit> = Executa um comando de shell arbitrário para cada commit marcado
-* d, drop <commit> = Remove o commit completamente do histórico
-* b, break <commit> = Para o rebase no ponto que ficou
-* m, merge <commit> = Recria uma merge
 <hr>
 
 ## Apagar Commit
